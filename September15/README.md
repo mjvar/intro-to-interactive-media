@@ -2,6 +2,8 @@
 
 A self-portrait drawn using basic shapes in Processing.
 
+![](eyeroll.gif)
+
 ### Project Notes
 The most tedious part of this project was eyeballing the coordinates for shapes. I had to put numbers in, compile and run the code, see if there were any misalignments, then repeat the process until the shape ended up where I wanted it.
 
