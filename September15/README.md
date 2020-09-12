@@ -11,4 +11,7 @@ To fix this problem, I added the line `print(mouseX, mouseY)`. This way, I could
 
 Aside from that, I found the static portrait a bit boring so I used the `map()` function to make the pupils follow the mouse. 
 
-Lastly, I thought it would be cool to see the interactive aspect of the project just from this readme. I used `saveFrame` to export stills from the canvas, and used an online GIF maker to create the animation you see above.
+Lastly, I thought it would be cool to see the interactive aspect of the project just from this readme. I used `saveFrame` to export stills from the sketch, and used an online GIF maker to create the animation you see above.
+
+Here's a still image from the sketch, just in case the GIF doesn't load for you:
+![](still.png)
