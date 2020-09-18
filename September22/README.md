@@ -48,8 +48,7 @@ Next, I want to fix the textures to resemble an actual map. For this feature, I 
 
 ### 5. Interactivity
 
-I wanted to give the user some control over the map that was generated. To do this, I let the user plot a certain number of points. These points would be used as a rough basis for the shape of the island (i.e. which tiles would be selected as "land"). This was the result:
-
+I wanted to give the user some control over the map that was generated. To do this, I let the user plot a certain number of points. These points would be used as a rough estimate for the shape of the island (i.e. which tiles would be selected as "land"). This was the result:
 
 
 ### 6. Manhattan Distance Calculation
