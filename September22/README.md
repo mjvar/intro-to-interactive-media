@@ -2,6 +2,12 @@
 
 This Processing sketch generates maps (for use in games, Dungeons & Dragons campaigns, etc.) from Voronoi tessellations. This was a really interesting project to work on!
 
+### INSTRUCTIONS:
+Click on the map to draw a rough shape;
+press ENTER to generate the map.
+
+## Development Process
+
 ### 1. Voronoi Tessellations
 
 To start, what is a Voronoi tessellation? Essentially, it's a plane partitioned into regions based on any given point's closeness to a given set of objects. For the purposes of this project, I randomly plotted points on the canvas, and generated Voronoi tessellations from those:
@@ -40,3 +46,26 @@ Next, I want to fix the textures to resemble an actual map. For this feature, I 
 
 <img src="perlin-noise.png" alt="textures using Perlin noise" width="400"/>
 
+### 5. Interactivity
+
+I wanted to give the user some control over the map that was generated. To do this, I let the user plot a certain number of points. These points would be used as a rough basis for the shape of the island (i.e. which tiles would be selected as "land"). This was the result:
+
+
+
+### 6. Manhattan Distance Calculation
+
+I was still a little unhappy with the map shapes, so I looked into using Manhattan distance calculation rather than Euclidean for the Voronoi diagram. In short, this constrained all edges to 8 directions. I think the result looks a bit cleaner:
+
+
+### Conclusion
+
+Overall, I'm pretty happy with how this project turned out! If I spent more time on it I could definitely refine a lot of the features, and maybe add more terrain variation (biomes/rivers/elevation). Given that I made most of it in an afternoon, though, I'm pleased with the end result.
+
+More samples:
+<img src="final-1.png" alt="sample of final output" width="400"/>
+<img src="final-2.png" alt="sample of final output" width="400"/>
+
+Learning resources:
+[Voronoi Diagrams and Procedural Map Generation](https://www.youtube.com/watch?v=3G5d8ob_Lfo)
+[Polygon Map Generation for Games](http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/)
+[Worley Noise with Daniel Shiffman](https://www.youtube.com/watch?v=4066MndcyCk&t=28s)
