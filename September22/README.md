@@ -61,7 +61,9 @@ I was still a little unhappy with the map shapes, so I looked into using Manhatt
 Overall, I'm pretty happy with how this project turned out! If I spent more time on it I could definitely refine a lot of the features, and maybe add more terrain variation (biomes/rivers/elevation). Given that I made most of it in an afternoon, though, I'm pleased with the end result.
 
 More samples:
+
 <img src="final-1.png" alt="sample of final output" width="400"/>
+
 <img src="final-2.png" alt="sample of final output" width="400"/>
 
 Learning resources:
