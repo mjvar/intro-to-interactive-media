@@ -35,3 +35,8 @@ And here's what the map looks like with a 50x50 grid, which is much more granula
 We can now add more variation and character to our maps. First, I introduced a bit of randomness so that some "land" tiles would be converted to water tiles (like lakes or ponds!) and some water tiles would be converted to tiny offshore islands. That gives us this result:
 
 <img src="random-water-islands.png" alt="8x8 grid" width="400"/>
+
+Next, I want to fix the textures to resemble an actual map. For this feature, I used Perlin noise, which is a noise function built into Processing that is very useful for generating textures.
+
+<img src="perlin-noise.png" alt="textures using Perlin noise" width="400"/>
+

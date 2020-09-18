@@ -64,8 +64,14 @@ IntList chooseLand(PVector[] pts){
 }
 
 void printWater(){
+  float noiseOffset = 0.008;
   loadPixels();
-  
+  for(int x = 0; x < width; x++){
+    for(int y = 0; y < height; y++){
+      int pixelI = x + y * width;
+      pixels[pixelI] = color(30,30,map(noise(x*noiseOffset, y*noiseOffset),0,1,140,250));
+    }
+  }
   updatePixels();
 }
 
@@ -73,12 +79,13 @@ void printWater(){
 //chosen in chooseLand().
 void printLand(){
   loadPixels();
+  float noiseOffset = 0.008;
   for(int x = 0; x < width; x++){
      for(int y = 0; y < height; y++){
        int pixelI = x + y * width;
        PointContainer current = findNearest(pts,x,y);
        if(land.hasValue(current.index)){
-         pixels[pixelI] = color(0,map(current.dist, 0, 50, 150, 180),0);
+         pixels[pixelI] = color(0,map(noise(x*noiseOffset, y*noiseOffset),0,1,120,200),0);
        }
      }
   }
@@ -86,7 +93,7 @@ void printLand(){
 }
 
 void setup(){
-  size(800,800);
+  size(1300,800);
   float scaleFactor = width/dotDim * 1.2; 
   float randomFactor = 20;
   for(int x = 0; x < dotDim; x++){
