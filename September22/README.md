@@ -46,14 +46,20 @@ Next, I want to fix the textures to resemble an actual map. For this feature, I 
 
 <img src="perlin-noise.png" alt="textures using Perlin noise" width="400"/>
 
-### 5. Interactivity
+### 5. Manhattan Distance Calculation
+
+I was still a little unhappy with the map shapes, so I looked into using Manhattan distance calculation rather than Euclidean for the Voronoi diagram. In short, this constrained all edges to 8 directions. This is what a raw Voronoi diagram looks like with Manhattan distance calculation:
+
+<img src="voronoi-manhattan.png" alt="sample of manhattan distance" width="400"/>
+
+I think the end result with this method looks a bit cleaner:
+
+<img src="manhattan.png" alt="sample of manhattan distance" width="400"/>
+
+### 6. Interactivity
 
 I wanted to give the user some control over the map that was generated. To do this, I let the user plot a certain number of points. These points would be used as a rough estimate for the shape of the island (i.e. which tiles would be selected as "land"). This was the result:
 
-
-### 6. Manhattan Distance Calculation
-
-I was still a little unhappy with the map shapes, so I looked into using Manhattan distance calculation rather than Euclidean for the Voronoi diagram. In short, this constrained all edges to 8 directions. I think the result looks a bit cleaner:
 
 
 ### Conclusion
