@@ -30,3 +30,8 @@ And here's what the map looks like with a 50x50 grid, which is much more granula
 
 <img src="dotdim50.png" alt="50x50 grid" width="400"/>
 
+### 4. Map Features
+
+We can now add more variation and character to our maps. First, I introduced a bit of randomness so that some "land" tiles would be converted to water tiles (like lakes or ponds!) and some water tiles would be converted to tiny offshore islands. That gives us this result:
+
+<img src="random-water-islands.png" alt="8x8 grid" width="400"/>
