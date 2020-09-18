@@ -42,7 +42,7 @@ We can now add more variation and character to our maps. First, I introduced a b
 
 <img src="random-water-islands.png" alt="8x8 grid" width="400"/>
 
-Next, I want to fix the textures to resemble an actual map. For this feature, I used Perlin noise, which is a noise function built into Processing that is very useful for generating textures.
+In the above examples, you can still see the Voronoi cells somewhat since I mapped pixel colors to their distance from the closest point in the Voronoi array. I wanted to change this so that the textures would more closely resemble actual terrain. To quickly implement this feature, I used Perlin noise, which is a noise function built into Processing that is very useful for generating textures.
 
 <img src="perlin-noise.png" alt="textures using Perlin noise" width="400"/>
 
@@ -61,10 +61,16 @@ I think the end result with this method looks a bit cleaner:
 I wanted to give the user some control over the map that was generated. To do this, I let the user plot a certain number of points. These points would be used as a rough estimate for the shape of the island (i.e. which tiles would be selected as "land"). This was the result:
 
 
+### Future Improvements
+
+One thing I think is lacking right now is more varied terrain. In a future iteration of the project (and given more time), I'd like to implement some kind of biome system so we could have sand on the shore lines, as well as tundras and jungles.
+
+Another nice addition would be to calculate the Voronoi diagram more efficiently. I recently learned a method to do this in my Algorithms class (closest pair in the plane) so it would be nice to implement this in the sketch.
+
 
 ### Conclusion
 
-Overall, I'm pretty happy with how this project turned out! If I spent more time on it I could definitely refine a lot of the features, and maybe add more terrain variation (biomes/rivers/elevation). Given that I made most of it in an afternoon, though, I'm pleased with the end result.
+Overall, I'm pretty happy with how this project turned out! If I spent more time on it I could definitely refine a lot of the features. Given that I made most of it in an afternoon, though, I'm pleased with the end result.
 
 More samples:
 
