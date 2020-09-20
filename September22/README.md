@@ -84,6 +84,8 @@ More samples:
 
 <img src="final-2.png" alt="sample of final output" width="400"/>
 
+<img src="final-3.png" alt="sample of final output" width="400"/>
+
 Learning resources:
 
 [Voronoi Diagrams and Procedural Map Generation](https://www.youtube.com/watch?v=3G5d8ob_Lfo)
