@@ -60,7 +60,9 @@ I think the end result with this method looks a bit cleaner:
 
 ### 6. Interactivity
 
-I wanted to give the user some control over the map that was generated. To do this, I let the user plot a certain number of points. These points would be used as a rough estimate for the shape of the island (i.e. which tiles would be selected as "land"). This was the result:
+I wanted to give the user some control over the map that was generated. To do this, I let the user plot a certain number of points. These points would be used as a rough estimate for the shape of the island (i.e. which tiles would be selected as "land"). 
+
+In the earlier example, I just drew a circle at the center of the map and set any points within that circle to be land. This new feature allows more variation with island shapes, since the "land" shape can be something other than a circle. This was the result:
 
 <img src="interactivity.gif" alt="interactive map gen" width="400"/>
 
