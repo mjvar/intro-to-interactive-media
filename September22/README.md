@@ -83,6 +83,7 @@ More samples:
 <img src="final-2.png" alt="sample of final output" width="400"/>
 
 Learning resources:
+
 [Voronoi Diagrams and Procedural Map Generation](https://www.youtube.com/watch?v=3G5d8ob_Lfo)
 
 [Polygon Map Generation for Games](http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/)
