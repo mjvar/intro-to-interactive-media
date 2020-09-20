@@ -1,5 +1,7 @@
 # Assignment 2 - Procedural Map Generation with Voronoi Tessellations
 
+<img src="final.gif" alt="sample of project" width="400"/>
+
 This Processing sketch generates maps (for use in games, Dungeons & Dragons campaigns, etc.) from Voronoi tessellations. This was a really interesting project to work on!
 
 ### INSTRUCTIONS:
@@ -60,10 +62,12 @@ I think the end result with this method looks a bit cleaner:
 
 I wanted to give the user some control over the map that was generated. To do this, I let the user plot a certain number of points. These points would be used as a rough estimate for the shape of the island (i.e. which tiles would be selected as "land"). This was the result:
 
+<img src="interactivity.gif" alt="interactive map gen" width="400"/>
+
 
 ### Future Improvements
 
-One thing I think is lacking right now is more varied terrain. In a future iteration of the project (and given more time), I'd like to implement some kind of biome system so we could have sand on the shore lines, as well as tundras and jungles.
+One thing I think is lacking right now is more varied terrain. In a future iteration of the project (and given more time), I'd like to implement some kind of biome system so we could have sand on the shore lines, as well as tundras, jungles, or deserts.
 
 Another nice addition would be to calculate the Voronoi diagram more efficiently. I recently learned a method to do this in my Algorithms class (closest pair in the plane) so it would be nice to implement this in the sketch.
 
