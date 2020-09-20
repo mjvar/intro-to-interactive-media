@@ -84,5 +84,7 @@ More samples:
 
 Learning resources:
 [Voronoi Diagrams and Procedural Map Generation](https://www.youtube.com/watch?v=3G5d8ob_Lfo)
+
 [Polygon Map Generation for Games](http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/)
+
 [Worley Noise with Daniel Shiffman](https://www.youtube.com/watch?v=4066MndcyCk&t=28s)
