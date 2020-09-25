@@ -13,3 +13,5 @@ The piece was inspired by this post from @revdancatt on Instagram:
 Using OOP was useful here so I could have a class-based function to draw an individual glyph. After that, it was just a matter of looping through an ArrayList of glyph objects.
 
 I also generated a bit of Perlin noise in the background to add some interest.
+
+Other than that, it was a fairly simple project so I don't have much to write about.
