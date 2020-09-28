@@ -10,7 +10,7 @@ The piece was inspired by this post from @revdancatt on Instagram:
 
 
 ### Learnings
-Using OOP was useful here so I could have a class-based function to draw an individual glyph. After that, it was just a matter of looping through an ArrayList of glyph objects.
+Using OOP was useful here so I could have a class-based function to draw an individual glyph. After that, it was just a matter of looping through an ArrayList of glyph objects. I used a random variable to draw each line of each shape, and lowered the likelihood of a line being drawn the lower the shape was on the canvas.
 
 I also generated a bit of Perlin noise in the background to add some interest.
 
