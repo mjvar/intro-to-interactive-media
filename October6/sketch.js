@@ -1,3 +1,8 @@
+// Matthew Varona - October 6, 2020
+// A visualization of flights I've taken throughout my life.
+// Mouse over any circle (a "location") to highlight its connections
+// and see a list of all flights you've taken to or from that location.
+
 let flights;
 let flightObjects = [];
 
