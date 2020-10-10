@@ -2,6 +2,7 @@
 // Fruit Ninja game, but the ninja just likes fruit.
 // Use the arrow keys to move.
 
+// Declaring global vars
 PFont font;
 PImage spritesheet;
 PImage[][] sprites;
@@ -20,9 +21,14 @@ int fruitX, fruitY, fruitChoiceX, fruitChoiceY;
 int score = 0;
 
 void moveNinja() {
+  // Direction = 0 means stationary.
+  // We set it to 0 by default unless the ninja moves
   direction = 0;
   if (keyPressed) {
     direction = 1;
+    
+    // Face = 0 means facing right.
+    // We set it to 0 by default unless the ninja moves left
     face = 0;
     if (keyCode == DOWN) {
       y+=move;
@@ -37,7 +43,9 @@ void moveNinja() {
     if (keyCode == UP) {
       y-=move;
     }
+    // Walking animation is faster than stationary animation, hence speed/6
     if (frameCount%(speed/6)==0) {
+      // Separate variable for walking animation for smoother visuals
       walkstep = (walkstep+1) % 4;
     }
     if (face == 1) {
@@ -65,8 +73,11 @@ void moveNinja() {
 
 void spawnFruit() {
   if(!fruitSpawned){
+    // Respawn fruit, but within a smaller box than the
+    // actual canvas so we don't get weird edge fruit
     fruitX = int(random(100,width-100));
     fruitY = int(random(100,height-100));
+    //Choose a random fruit
     fruitChoiceX = int(random(0,2.99));
     fruitChoiceY = int(random(0,2.99));
     fruitSpawned = true;
@@ -86,6 +97,7 @@ void setup() {
   int w = 105;
   int h = 140;
 
+  // Loading ninja sprites
   for (int x = 0; x < 2; x++) {
     sprites[0][x] = spritesheet.get(x*100, 0, 100, h);
   }
@@ -100,6 +112,7 @@ void setup() {
   int w2 = 100;
   int h2 = 100;
 
+  // Loading fruit sprites
   for (int x = 0; x < 3; x++) {
     for (int y = 0; y < 3; y++) {
       fruits[x][y] = fruitsheet.get(x*w2, y*w2, w2, h2);
