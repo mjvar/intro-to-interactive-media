@@ -1,6 +1,6 @@
 # Midterm Project - Bullet Time
 
-Inspired by the first-person shooter [Superhot](https://www.google.com/search?q=superhot&oq=superhot&aqs=chrome..69i57.794j0j1&sourceid=chrome&ie=UTF-8), I want to make a side-scrolling shooter where the player can slow down time to dodge bullets and precisely control their character. One of the main features I want to implement is a catchy, high-octane original soundtrack that also slows down when the player slows time.
+Inspired by the first-person shooter [Superhot](https://www.google.com/search?q=superhot&oq=superhot&aqs=chrome..69i57.794j0j1&sourceid=chrome&ie=UTF-8), I want to make a side-scrolling bullet hell game where the player can slow down time to dodge bullets and precisely control their character. One of the main features I want to implement is a catchy, high-octane original soundtrack that also slows down when the player slows time.
 
 Journal of progress:
 
@@ -15,3 +15,24 @@ I polished the soundtrack of the game, adding more variation and tonality so the
 I also did a bit more thinking about what I want the gameplay to be like. I figure it would be interesting for the game to last infinitely, with difficulty scaling automatically as time moves on. I can procedurally generate more and more enemies as the player lives longer. 
 
 Thinking about the visual aesthetic of the game, I want it to match the techno-y, funky vibe of the soundtrack I wrote. I should probably use lots of purples and blues for the color palette, to fit a cyberpunk-esque theme. I also think 8-bit sprites would be a good fit for the game's mood.
+
+### October 24
+As a complete 180 from my last journal entry, I've decided to move forward in Processing instead since file loading and keyboard input things are just easier to deal with in Java. If I really want to share the project, I can just use processing.js or something later on.
+
+I figured I should start thinking more critically about level design, so I drew up level mockups on pen and paper. 
+
+<img src="images/mockups.jpg" width="300px">
+
+I want to introduce new mechanics or techniques every level, so I have to gradually increase difficulty, making sure not to shock the player.
+
+I was able to write win & loss sound effects for when the player reaches the portal or dies from a bullet.
+
+I also put together a basic prototype for one level of the game. The prototype has most of the game's basic functionality: a ship, a bunch of shooters, bullets, and a portal as the goal. 
+
+<img src="images/oct24-sample.gif" width="300px">
+
+Processing is notoriously bad at rendering lots of objects simultaneously. While I didn't experience any lag with this prototype, I know I will eventually the more complex my game gets. To get around this, I designed the `cleanBullets` function to dynamically delete `bullet` objects from the `bullets` ArrayList. Once the bullet leaves the screen, it no longer gets displayed or checked for the death condition. This means that `checkDeath` only iterates through a small array at any given frame; with the cleaning function, it only iterates through around 30-50 bullets, while without it, that number could easily reach the hundreds or thousands.
+
+Anyway, after seeing how much work I got done on the prototype, I decided to stop working for the day.
+
+
