@@ -32,8 +32,41 @@ class Ship{
   }
   
   void displayShip(){
-    fill(255);
-    ellipse(loc.x, loc.y, diam, diam);
+    float imgScl = 1.8;
+    imageMode(CENTER);
+    if(isUp){
+      if(isLeft){
+        image(dr, loc.x, loc.y, diam*imgScl, diam*imgScl);
+      }
+      else if(isRight){
+        image(dl, loc.x, loc.y, diam*imgScl, diam*imgScl);
+      }
+      else{
+        image(d, loc.x, loc.y, diam*imgScl, diam*imgScl);
+      }
+    }
+    else if(isDown){
+      if(isLeft){
+        image(ur, loc.x, loc.y, diam*imgScl, diam*imgScl);
+      }
+      else if(isRight){
+        image(ul, loc.x, loc.y, diam*imgScl, diam*imgScl);
+      }
+      else{
+        image(u, loc.x, loc.y, diam*imgScl, diam*imgScl);
+      }
+    }
+    else if(isLeft){
+      image(r, loc.x, loc.y, diam*imgScl, diam*imgScl);
+    }
+    else if(isRight){
+      image(l, loc.x, loc.y, diam*imgScl, diam*imgScl);
+    }
+    else{
+      image(base, loc.x, loc.y, diam*imgScl, diam*imgScl);
+    }
+    //fill(255);
+    //ellipse(loc.x, loc.y, diam, diam);
   }
   
   boolean setMove(int k, boolean b){
@@ -102,7 +135,8 @@ class Bullet{
       ellipse(loc.x - vel.x*(i+1)*3, loc.y - vel.y*(i+1)*3, 8-i, 8-i);
     }
     fill(255);
-    ellipse(loc.x, loc.y, 8, 8);
+    rectMode(CENTER);
+    rect(loc.x, loc.y, 8, 8);
   }
 }
 

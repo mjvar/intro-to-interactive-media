@@ -1,5 +1,5 @@
 void checkWin(){
-  if(dist(myPortal.loc.x, myPortal.loc.y, myShip.loc.x, myShip.loc.y) <= shipDiam/2){
+  if(dist(myPortal.loc.x, myPortal.loc.y, myShip.loc.x, myShip.loc.y) <= shipDiam){
     gameOn = false;
     levelWin = true;
   }
@@ -20,4 +20,8 @@ void cleanBullets(){
       bullets.remove(i);
     }
   }
+}
+
+void winScreen(){
+  
 }

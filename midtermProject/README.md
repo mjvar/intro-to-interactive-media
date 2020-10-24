@@ -33,6 +33,13 @@ I also put together a basic prototype for one level of the game. The prototype h
 
 Processing is notoriously bad at rendering lots of objects simultaneously. While I didn't experience any lag with this prototype, I know I will eventually the more complex my game gets. To get around this, I designed the `cleanBullets` function to dynamically delete `bullet` objects from the `bullets` ArrayList. Once the bullet leaves the screen, it no longer gets displayed or checked for the death condition. This means that `checkDeath` only iterates through a small array at any given frame; with the cleaning function, it only iterates through around 30-50 bullets, while without it, that number could easily reach the hundreds or thousands.
 
+Finally, I started working on some pixel art for the sprites. I've never really done pixel art before but I found it fairly intuitive and fun. Here are some sprite samples:
+
+<img src="images/base.png" width="400px">
+
+<img src="images/ul.png" width="400px">
+
 Anyway, after seeing how much work I got done on the prototype, I decided to stop working for the day.
+
 
 

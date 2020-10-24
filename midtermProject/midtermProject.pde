@@ -3,6 +3,16 @@ SoundFile gameMusic;
 SoundFile deathSound;
 SoundFile winSound;
 
+PImage base;
+PImage u;
+PImage d;
+PImage l;
+PImage r;
+PImage ul;
+PImage ur;
+PImage dl;
+PImage dr;
+
 boolean deathSoundPlayed = false;
 boolean winSoundPlayed = false;
 float musicRate = 1;
@@ -12,6 +22,7 @@ float currentVel = 3;
 
 int shipDiam = 40;
 
+int currentLevel = 1;
 boolean gameOn = false;
 boolean levelWin = false;
 
@@ -28,14 +39,24 @@ void setup() {
   deathSound = new SoundFile(this, "death-sound.mp3");
   winSound = new SoundFile(this, "win-sound.mp3");
   
+  base = loadImage("images/base.png");
+  u = loadImage("images/u.png");
+  ul = loadImage("images/ul.png");
+  ur = loadImage("images/ur.png");
+  d = loadImage("images/d.png");
+  dl = loadImage("images/dl.png");
+  dr = loadImage("images/dr.png");
+  l = loadImage("images/l.png");
+  r = loadImage("images/r.png");
+  
   level1();
 }      
 
 void draw() {
-  background(0, 1);
   gameMusic.rate(musicRate);
   
   if(gameOn){
+    background(0, 1);
     myShip.moveShip();
     
     for(Bullet b : bullets){
