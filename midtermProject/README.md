@@ -35,9 +35,7 @@ Processing is notoriously bad at rendering lots of objects simultaneously. While
 
 Finally, I started working on some pixel art for the sprites. I've never really done pixel art before but I found it fairly intuitive and fun. Here are some sprite samples:
 
-<img src="images/base.png" width="400px">
-
-<img src="images/ul.png" width="400px">
+<img src="images/base.png" width="200px"> <img src="images/ul.png" width="200px">
 
 Anyway, after seeing how much work I got done on the prototype, I decided to stop working for the day.
 
