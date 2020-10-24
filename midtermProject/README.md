@@ -21,15 +21,15 @@ As a complete 180 from my last journal entry, I've decided to move forward in Pr
 
 I figured I should start thinking more critically about level design, so I drew up level mockups on pen and paper. 
 
-<img src="images/mockups.jpg" width="300px">
+<img src="images/mockups.JPG" width="500px">
 
 I want to introduce new mechanics or techniques every level, so I have to gradually increase difficulty, making sure not to shock the player.
 
 I was able to write win & loss sound effects for when the player reaches the portal or dies from a bullet.
 
-I also put together a basic prototype for one level of the game. The prototype has most of the game's basic functionality: a ship, a bunch of shooters, bullets, and a portal as the goal. 
+I also put together a basic prototype for one level of the game. The prototype has most of the game's basic functionality: smooth and controlled movement (which I had to tweak quite a bit), the time-slow function, music that also slows with the game, a ship, a bunch of shooters, bullets, and a portal as the goal. 
 
-<img src="images/oct24-sample.gif" width="300px">
+<img src="images/oct24-sample.gif" width="700px">
 
 Processing is notoriously bad at rendering lots of objects simultaneously. While I didn't experience any lag with this prototype, I know I will eventually the more complex my game gets. To get around this, I designed the `cleanBullets` function to dynamically delete `bullet` objects from the `bullets` ArrayList. Once the bullet leaves the screen, it no longer gets displayed or checked for the death condition. This means that `checkDeath` only iterates through a small array at any given frame; with the cleaning function, it only iterates through around 30-50 bullets, while without it, that number could easily reach the hundreds or thousands.
 
