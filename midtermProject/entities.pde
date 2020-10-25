@@ -1,22 +1,58 @@
+// global vars for entities
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 ArrayList<Shooter> shooters = new ArrayList<Shooter>();
-Ship myShip;
+ArrayList<Particle> particles = new ArrayList<Particle>();
+Ship myShip = new Ship(shipDiam, new PVector(shipDiam, height/2));
 Portal myPortal;
 
 void level1(){
-  gameOn = true;
-  
   bullets = new ArrayList<Bullet>();
   shooters = new ArrayList<Shooter>();
   
   myShip = new Ship(shipDiam, new PVector(shipDiam, height/2));
   myPortal = new Portal(new PVector(width-shipDiam, height/2));
   
-  
   // Initialize shooters for this level
-  shooters.add(new Shooter(new PVector(width/4, 0), new PVector(1, 1), 60));
+  shooters.add(new Shooter(new PVector(width/4, 0), new PVector(0, 1), 60));
   shooters.add(new Shooter(new PVector(width/2, height), new PVector(0, -1), 60));
   shooters.add(new Shooter(new PVector(width*0.75, 0), new PVector(0, 1), 60));
+  
+  globalResets();
+}
+
+void level2(){     
+  bullets = new ArrayList<Bullet>();
+  shooters = new ArrayList<Shooter>();
+  
+  myShip = new Ship(shipDiam, new PVector(shipDiam, height/2));
+  myPortal = new Portal(new PVector(width-shipDiam, height/2));
+ 
+  // Initialize shooters for this level
+  shooters.add(new Shooter(new PVector(300, 0), new PVector(1, 1), 60));
+  shooters.add(new Shooter(new PVector(300, height), new PVector(1, -1), 60));
+  
+  globalResets();
+}
+
+void level3(){     
+  bullets = new ArrayList<Bullet>();
+  shooters = new ArrayList<Shooter>();
+  
+  myShip = new Ship(shipDiam, new PVector(shipDiam, height*0.9));
+  myPortal = new Portal(new PVector(width-shipDiam, height*0.1));
+ 
+  // Initialize shooters for this level
+  shooters.add(new Shooter(new PVector(0, 250), new PVector(1, 0), 60));
+  shooters.add(new Shooter(new PVector(0, 400), new PVector(1, 0), 60));
+  shooters.add(new Shooter(new PVector(0, 550), new PVector(1, 0), 60));
+  shooters.add(new Shooter(new PVector(250, height), new PVector(0, -1), 60));
+  shooters.add(new Shooter(new PVector(400, height), new PVector(0, -1), 60));
+  shooters.add(new Shooter(new PVector(550, height), new PVector(0, -1), 60));
+  shooters.add(new Shooter(new PVector(700, 0), new PVector(1, 1), 60));
+  shooters.add(new Shooter(new PVector(850, 0), new PVector(1, 1), 60));
+  shooters.add(new Shooter(new PVector(1000, 0), new PVector(1, 1), 60));
+  
+  globalResets();
 }
 
 class Ship{
@@ -28,7 +64,7 @@ class Ship{
   Ship(int d, PVector l){
     // Set ship diameter
     diam = d;
-    loc = l.get();
+    loc = l.copy();
   }
   
   void displayShip(){
@@ -87,8 +123,42 @@ class Ship{
   void moveShip(){
     // Move ship based on current active directions, constrained to canvas
     int r = diam >> 1;
-    loc.x = constrain(loc.x + currentVel*(int(isRight) - int(isLeft)), r, width  - r);
-    loc.y = constrain(loc.y + currentVel*(int(isDown)  - int(isUp)),   r, height - r);
+    loc.x = constrain(loc.x + currentSpeed*(int(isRight) - int(isLeft)), r, width  - r);
+    loc.y = constrain(loc.y + currentSpeed*(int(isDown)  - int(isUp)),   r, height - r);
+  }
+}
+
+class Particle {
+  PVector loc;
+  PVector vel;
+  PVector acc;
+  float lifespan;
+
+  Particle(PVector l, PVector v) {
+    acc = new PVector(0, 0.05);
+    vel = v.copy();
+    loc = l.copy();
+    lifespan = 255.0;
+  }
+
+  void updateParticles() {
+    vel.add(acc);
+    loc.add(vel);
+    lifespan -= 1.0;
+  }
+
+  void displayParticles() {
+    stroke(255, lifespan);
+    fill(255, lifespan);
+    ellipse(loc.x, loc.y, 8, 8);
+  }
+
+  boolean isDead() {
+    if (lifespan < 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
@@ -98,13 +168,13 @@ class Shooter{
   int freq;
   
   Shooter(PVector l, PVector d, int f){
-    loc = l.get();
-    dir = d.get();    
+    loc = l.copy();
+    dir = d.copy();    
     freq = f;
   }
   
   void shootBullet(){
-    if(frameCount % (freq/currentVel) == 0){
+    if(frameCount % (freq/currentSpeed) == 0){
       bullets.add(new Bullet(loc, dir));
     }
   }
@@ -120,15 +190,17 @@ class Bullet{
   PVector vel;
   
   Bullet(PVector l, PVector v){
-    loc = l.get();
-    vel = v.get();
+    loc = l.copy();
+    vel = v.copy();
   }
   
   void updateBullet(){
-    loc.add(PVector.mult(vel, currentVel));
+    // Move bullet based on current game speed
+    loc.add(PVector.mult(vel, currentSpeed));
   }
   
   void displayBullet() {
+    // Display bullet with a trail
     for(int i = 0; i < 7; i++){
       fill(255, 153, 20, 160);
       noStroke();
@@ -141,10 +213,11 @@ class Bullet{
 }
 
 class Portal{
+  // End goal for any given level
   PVector loc;
   
   Portal(PVector l){
-    loc = l.get();
+    loc = l.copy();
   }
   
   void displayPortal(){

@@ -1,7 +1,11 @@
 import processing.sound.*;
+// Sound files for game audio
 SoundFile gameMusic;
 SoundFile deathSound;
 SoundFile winSound;
+
+PImage[] deathScreens = new PImage[4];
+PImage[] winScreens = new PImage[4];
 
 PImage base;
 PImage u;
@@ -13,29 +17,30 @@ PImage ur;
 PImage dl;
 PImage dr;
 
+// Music control things
 boolean deathSoundPlayed = false;
 boolean winSoundPlayed = false;
 float musicRate = 1;
 
-// Globals for movement
-float currentVel = 3; 
+// Global var for movement
+float currentSpeed = 3; 
 
 int shipDiam = 40;
 
-int currentLevel = 1;
+// Game control things
+int currentLevel = 0;
 boolean gameOn = false;
 boolean levelWin = false;
+boolean levelSetup = false;
+
+// Frame iterator for win/death screens
+int fIt = 0;
 
 void setup() {
   size(1200, 700);
-  background(0);
-  
-  smooth(3);
     
-  // Load a soundfile from the data folder of the sketch and play it back double the speed
+  // Loading game sounds
   gameMusic = new SoundFile(this, "game-music.mp3");
-  gameMusic.loop();
-  
   deathSound = new SoundFile(this, "death-sound.mp3");
   winSound = new SoundFile(this, "win-sound.mp3");
   
@@ -49,54 +54,24 @@ void setup() {
   l = loadImage("images/l.png");
   r = loadImage("images/r.png");
   
-  level1();
+  for(int i = 0; i <= 3; i++){
+    deathScreens[i] = loadImage("images/death" + str(i) + ".png");
+    winScreens[i] = loadImage("images/win" + str(i) + ".png");
+  }
 }      
 
 void draw() {
+  // Setting rate of music
   gameMusic.rate(musicRate);
   
-  if(gameOn){
-    background(0, 1);
-    myShip.moveShip();
-    
-    for(Bullet b : bullets){
-      b.updateBullet();
-      b.displayBullet();
-    }
-    
-    for(Shooter s : shooters){
-      s.shootBullet();
-      s.displayShooter();
-    }
-    
-    myShip.displayShip();
-    myPortal.displayPortal();
-    cleanBullets();
-    println(bullets.size());
-    
-    checkWin();
-    checkDeath();
-  }
-  else if(levelWin){
-    gameMusic.stop();
-    if(!winSoundPlayed){
-      winSound.play();
-      winSoundPlayed = true;
-    }
-  }
-  else{
-    gameMusic.stop();
-    if(!deathSoundPlayed){
-      deathSound.play();
-      deathSoundPlayed = true;
-    }
-  }
+  // Run the game
+  runGame();
 }
 
 void keyPressed(){
   if(key == ' '){
     musicRate = 0.8;
-    currentVel = 0.5;
+    currentSpeed = 0.5;
   }
   else {
     myShip.setMove(keyCode, true);
@@ -106,7 +81,7 @@ void keyPressed(){
 void keyReleased(){
   if(key == ' '){
     musicRate = 1;
-    currentVel = 3;
+    currentSpeed = 3;
   }
   else {
     myShip.setMove(keyCode, false);
