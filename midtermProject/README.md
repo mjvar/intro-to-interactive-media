@@ -1,10 +1,16 @@
 # Midterm Project - Bullet Time
 
-Inspired by the first-person shooter [Superhot](https://www.google.com/search?q=superhot&oq=superhot&aqs=chrome..69i57.794j0j1&sourceid=chrome&ie=UTF-8), I want to make a side-scrolling bullet hell game where the player can slow down time to dodge bullets and precisely control their character. One of the main features I want to implement is a catchy, high-octane original soundtrack that also slows down when the player slows time.
+A difficult bullet hell that lets you slow time down. 
+
+<img src="images/cooldemo.gif" width="600px">
+
+Inspired by the first-person shooter [Superhot](https://superhotgame.com/) as well as the bullet hell [Bullet Fractals](https://nartier.itch.io/bullet-fractals)
 
 Journal of progress:
 
 ### October 15
+Inspired by the first-person shooter [Superhot](https://superhotgame.com/) as well as the bullet hell [Bullet Fractals](https://nartier.itch.io/bullet-fractals), I want to make a side-scrolling "[bullet hell](https://en.wikipedia.org/wiki/Shoot_%27em_up)" game where the player can slow down time to dodge bullets and precisely control their character. One of the main features I want to implement is a catchy, upbeat original soundtrack that also slows down when the player slows time.
+
 Today I began composing the soundtrack for the game and implementing some basic things in Processing. I was able to finish a draft of the soundtrack and get smooth transitions between fast/slow music using the `processing.sound` library. 
 
 Unfortunately I can't find a way to only modify pitch or speed – I have to change both when I change the sound file's `.rate()`. This seems to be true for p5.js as well, so I'll just have to live with it.
@@ -35,9 +41,26 @@ Processing is notoriously bad at rendering lots of objects simultaneously. While
 
 Finally, I started working on some pixel art for the sprites. I've never really done pixel art before but I found it fairly intuitive and fun. Here are some sprite samples:
 
-<img src="images/base.png" width="100px"> <img src="images/ul.png" width="100px">
+<img src="images/base-old.png" width="100px"> <img src="images/ul-old.png" width="100px">
 
 Anyway, after seeing how much work I got done on the prototype, I decided to stop working for the day.
+
+### October 25
+
+I playtested the game with some friends and found out a few things. First, the game is a lot harder than I thought it was for people less experienced with games (although that's a good thing! I want it to be hard.) Some of the playtesters who are more used to games were quickly able to get a hold of the mechanics, though. I was planning on making it even harder but I'm now reconsidering that. I definitely don't want it to be easy, but I also don't want people to quit after 3 tries.
+
+### October 26
+
+Crunch time!
+
+I added so many new things:
+* A "meter" for the slow ability, so that people don't just spam it
+* Title screen and menu
+* All 12 levels (!!)
+* 2 unique types of shooters: a Sniper that shoots in your direction, and a Berserker that shoots in a spiral around itself
+* And new pixel art that isn't as ugly:
+
+<img src="images/base.png" width="100px"> <img src="images/ul.png" width="100px"> <img src="images/shooty.png" width="100px">
 
 
 

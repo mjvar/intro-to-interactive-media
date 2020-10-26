@@ -1,59 +1,10 @@
 // global vars for entities
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 ArrayList<Shooter> shooters = new ArrayList<Shooter>();
-ArrayList<Particle> particles = new ArrayList<Particle>();
 Ship myShip = new Ship(shipDiam, new PVector(shipDiam, height/2));
 Portal myPortal;
 
-void level1(){
-  bullets = new ArrayList<Bullet>();
-  shooters = new ArrayList<Shooter>();
-  
-  myShip = new Ship(shipDiam, new PVector(shipDiam, height/2));
-  myPortal = new Portal(new PVector(width-shipDiam, height/2));
-  
-  // Initialize shooters for this level
-  shooters.add(new Shooter(new PVector(width/4, 0), new PVector(0, 1), 60));
-  shooters.add(new Shooter(new PVector(width/2, height), new PVector(0, -1), 60));
-  shooters.add(new Shooter(new PVector(width*0.75, 0), new PVector(0, 1), 60));
-  
-  globalResets();
-}
-
-void level2(){     
-  bullets = new ArrayList<Bullet>();
-  shooters = new ArrayList<Shooter>();
-  
-  myShip = new Ship(shipDiam, new PVector(shipDiam, height/2));
-  myPortal = new Portal(new PVector(width-shipDiam, height/2));
- 
-  // Initialize shooters for this level
-  shooters.add(new Shooter(new PVector(300, 0), new PVector(1, 1), 60));
-  shooters.add(new Shooter(new PVector(300, height), new PVector(1, -1), 60));
-  
-  globalResets();
-}
-
-void level3(){     
-  bullets = new ArrayList<Bullet>();
-  shooters = new ArrayList<Shooter>();
-  
-  myShip = new Ship(shipDiam, new PVector(shipDiam, height*0.9));
-  myPortal = new Portal(new PVector(width-shipDiam, height*0.1));
- 
-  // Initialize shooters for this level
-  shooters.add(new Shooter(new PVector(0, 250), new PVector(1, 0), 60));
-  shooters.add(new Shooter(new PVector(0, 400), new PVector(1, 0), 60));
-  shooters.add(new Shooter(new PVector(0, 550), new PVector(1, 0), 60));
-  shooters.add(new Shooter(new PVector(250, height), new PVector(0, -1), 60));
-  shooters.add(new Shooter(new PVector(400, height), new PVector(0, -1), 60));
-  shooters.add(new Shooter(new PVector(550, height), new PVector(0, -1), 60));
-  shooters.add(new Shooter(new PVector(700, 0), new PVector(1, 1), 60));
-  shooters.add(new Shooter(new PVector(850, 0), new PVector(1, 1), 60));
-  shooters.add(new Shooter(new PVector(1000, 0), new PVector(1, 1), 60));
-  
-  globalResets();
-}
+int slowMeter = 200;
 
 class Ship{
   PVector loc = new PVector();
@@ -68,7 +19,7 @@ class Ship{
   }
   
   void displayShip(){
-    float imgScl = 1.8;
+    float imgScl = 1.4;
     imageMode(CENTER);
     if(isUp){
       if(isLeft){
@@ -101,19 +52,29 @@ class Ship{
     else{
       image(base, loc.x, loc.y, diam*imgScl, diam*imgScl);
     }
+    // This is the hitbox of the ship, in case I want to see it
     //fill(255);
     //ellipse(loc.x, loc.y, diam, diam);
   }
   
   boolean setMove(int k, boolean b){
+    // Nice, smooth, spicy diagonal movement
+    // WHY WAS THIS SO HARD IN PROCESSING
     switch(k){
       case +'W':
+      case UP:
         return isUp = b;
-      case +'A':
-        return isLeft = b;
+   
       case +'S':
+      case DOWN:
         return isDown = b;
+   
+      case +'A':
+      case LEFT:
+        return isLeft = b;
+   
       case +'D':
+      case RIGHT:
         return isRight = b;
       default:
         return b;
@@ -128,60 +89,63 @@ class Ship{
   }
 }
 
-class Particle {
-  PVector loc;
-  PVector vel;
-  PVector acc;
-  float lifespan;
-
-  Particle(PVector l, PVector v) {
-    acc = new PVector(0, 0.05);
-    vel = v.copy();
-    loc = l.copy();
-    lifespan = 255.0;
-  }
-
-  void updateParticles() {
-    vel.add(acc);
-    loc.add(vel);
-    lifespan -= 1.0;
-  }
-
-  void displayParticles() {
-    stroke(255, lifespan);
-    fill(255, lifespan);
-    ellipse(loc.x, loc.y, 8, 8);
-  }
-
-  boolean isDead() {
-    if (lifespan < 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-}
-
 class Shooter{
   PVector loc;
   PVector dir;
+  
+  // Frequency of shooting (important for Berserker)
   int freq;
   
-  Shooter(PVector l, PVector d, int f){
+  // SHOOTER TYPES:
+  // 0 - regular, shoots at set direction
+  // 1 - sniper, shoots in player's direction
+  // 2 - berserker, rotates around rapidly, shooting in all directions
+  int type;
+  
+  // Theta value for rotations for berserker
+  float theta = 0;
+  
+  Shooter(int t, PVector l, int f, PVector d){
+    // Constructor for Regular, which takes a set direction
     loc = l.copy();
     dir = d.copy();    
     freq = f;
+    type = t;
+  }
+  
+  Shooter(int t, PVector l, int f){
+    // Constructor for Berserker and Sniper, which don't take a set direction
+    loc = l.copy();
+    dir = new PVector(0,0);   
+    freq = f;
+    type = t;
   }
   
   void shootBullet(){
+    theta += 0.1;
     if(frameCount % (freq/currentSpeed) == 0){
-      bullets.add(new Bullet(loc, dir));
+      if(type == 0){
+        // REGULAR - just shoot in provided direction
+        bullets.add(new Bullet(loc, dir));
+      }
+      else if(type == 1){
+        // SNIPER - shoot in direction of player
+        PVector d = PVector.sub(myShip.loc, loc);
+        bullets.add(new Bullet(loc, d.normalize()));
+      }
+      else if(type == 2){
+        // BERSERKER - shoot in a spiral pattern
+        PVector d = new PVector(cos(theta),sin(theta));
+        bullets.add(new Bullet(loc, d));
+      }
     }
   }
   
   void displayShooter(){
     fill(255);
-    ellipse(loc.x, loc.y, 100, 100);
+    imageMode(CENTER);
+    image(shooty, loc.x, loc.y);
+    //ellipse(loc.x, loc.y, 100, 100);
   }
 }
 
@@ -222,6 +186,7 @@ class Portal{
   
   void displayPortal(){
     fill(143, 232, 65);
-    ellipse(loc.x, loc.y, shipDiam, shipDiam);
+    image(portal, loc.x, loc.y, shipDiam*1.4, shipDiam*1.4);
+    //ellipse(loc.x, loc.y, shipDiam, shipDiam);
   }
 }
