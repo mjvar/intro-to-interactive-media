@@ -1,4 +1,4 @@
-#  Time
+# Bullet Time
 
 Bullet Time is a difficult but fair bullet hell that lets you slow time down. 
 
