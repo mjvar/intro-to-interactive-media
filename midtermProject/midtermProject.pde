@@ -5,6 +5,7 @@ SoundFile deathSound;
 SoundFile winSound;
 SoundFile menuMusic;
 
+// Menu/screen stuff
 PImage[] deathScreens = new PImage[4];
 PImage[] winScreens = new PImage[4];
 PImage startScreen;
@@ -12,6 +13,7 @@ PImage bg;
 PImage start;
 PImage levels;
 
+// Ship assets
 PImage base;
 PImage u;
 PImage d;
@@ -22,9 +24,11 @@ PImage ur;
 PImage dl;
 PImage dr;
 
+// Other pics
 PImage shooty;
 PImage portal;
 
+// Level icons
 PImage[] lvs = new PImage[12];
 
 // WHY DOES PROCESSING NOT HAVE THIS BUILT IN

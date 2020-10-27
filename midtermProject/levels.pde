@@ -105,14 +105,15 @@ void level7(){
   bullets = new ArrayList<Bullet>();
   shooters = new ArrayList<Shooter>();
   
-  myShip = new Ship(shipDiam, new PVector(shipDiam, height*0.9));
-  myPortal = new Portal(new PVector(width-shipDiam, height*0.1));
+  myShip = new Ship(shipDiam, new PVector(shipDiam, height/2));
+  myPortal = new Portal(new PVector(width-shipDiam, height/2));
   
-  shooters.add(new Shooter(0, new PVector(width/4, 0), 60, new PVector(1, 1)));
-  shooters.add(new Shooter(0, new PVector(width/4, height), 60, new PVector(1, -1)));
+  shooters.add(new Shooter(1, new PVector(width/2, 0), 60));
   shooters.add(new Shooter(1, new PVector(width/2, height), 60));
+  shooters.add(new Shooter(1, new PVector(3*width/4, height), 60));
   shooters.add(new Shooter(1, new PVector(3*width/4, 0), 60));
-  shooters.add(new Shooter(0, new PVector(3*width/4, height), 60, new PVector(0, -1)));  
+  shooters.add(new Shooter(0, new PVector(width, 0), 60, new PVector(-1, 1)));
+  shooters.add(new Shooter(0, new PVector(width, height), 60, new PVector(-1, -1)));
   
   globalResets();
 }
@@ -125,7 +126,7 @@ void level8(){
   myShip = new Ship(shipDiam, new PVector(shipDiam, height*0.1));
   myPortal = new Portal(new PVector(width-shipDiam, height*0.9));
   
-  shooters.add(new Shooter(2, new PVector(width/2, height/2), 9));
+  shooters.add(new Shooter(2, new PVector(width/2, height/2), 6));
   
   globalResets();
 }
