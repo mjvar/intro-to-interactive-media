@@ -1,4 +1,4 @@
-# Bullet Time
+#  Time
 
 Bullet Time is a difficult but fair bullet hell that lets you slow time down. 
 
@@ -35,7 +35,7 @@ This game was inspired by the first-person shooter [Superhot](https://superhotga
 ## Journal of progress:
 
 ### October 15
-Inspired by the first-person shooter [Superhot](https://superhotgame.com/) as well as the bullet hell [Bullet Fractals](https://nartier.itch.io/bullet-fractals), I want to make a side-scrolling "[bullet hell](https://en.wikipedia.org/wiki/Shoot_%27em_up)" game where the player can slow down time to dodge bullets and precisely control their character. One of the main features I want to implement is a catchy, upbeat original soundtrack that also slows down when the player slows time.
+Inspired by Superhot and Bullet Fractals, I want to make a side-scrolling "[bullet hell](https://en.wikipedia.org/wiki/Shoot_%27em_up)" game where the player can slow down time to dodge bullets and precisely control their character. One of the main features I want to implement is a catchy, upbeat original soundtrack that also slows down when the player slows time.
 
 Today I began composing the soundtrack for the game and implementing some basic things in Processing. I was able to finish a draft of the soundtrack and get smooth transitions between fast/slow music using the `processing.sound` library. 
 
@@ -84,7 +84,7 @@ I added so many new things:
 * Title screen and menu
 * All 12 levels (!!)
 * 2 unique types of shooters: a Sniper that shoots in your direction, and a Berserker that shoots in a spiral around itself
-* And new pixel art that isn't as ugly:
+* And new pixel art that (comparatively) isn't as ugly:
 
 <img src="images/base.png" width="100px"> <img src="images/ul.png" width="100px"> <img src="images/shooty.png" width="100px">
 

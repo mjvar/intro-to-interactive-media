@@ -168,8 +168,8 @@ void level11(){
   myPortal = new Portal(new PVector(width-shipDiam, height/2));
   
   shooters.add(new Shooter(1, new PVector(4*width/7, height/2), 60));;
-  shooters.add(new Shooter(2, new PVector(5*width/7, 3*height/8), 6));
-  shooters.add(new Shooter(2, new PVector(5*width/7, 5*height/8), 6));
+  shooters.add(new Shooter(2, new PVector(5*width/7, 3*height/8), 9));
+  shooters.add(new Shooter(2, new PVector(5*width/7, 5*height/8), 9));
   
   globalResets();
 }

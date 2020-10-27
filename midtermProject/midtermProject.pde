@@ -56,10 +56,10 @@ void setup() {
   size(1200, 700);
     
   // Loading game sounds
-  gameMusic = new SoundFile(this, "game-music.mp3");
-  deathSound = new SoundFile(this, "death-sound.mp3");
-  winSound = new SoundFile(this, "win-sound.mp3");
-  menuMusic = new SoundFile(this, "menu-music.mp3");
+  gameMusic = new SoundFile(this, "sounds/game-music.mp3");
+  deathSound = new SoundFile(this, "sounds/death-sound.mp3");
+  winSound = new SoundFile(this, "sounds/win-sound.mp3");
+  menuMusic = new SoundFile(this, "sounds/menu-music.mp3");
   
   // Loading ship sprites
   base = loadImage("images/base.png");
