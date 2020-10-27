@@ -8,7 +8,13 @@ I've always been fascinated by hard games, even though I'm not very good at them
 
 I created pixel art for the first time during this project. I also composed the soundtracks and sound effects myself.
 
-In Bullet Time, you pilot a ship (with WASD/arrows) towards a portal, while dodging an onslaught of bullets from enemies. While playing, you can slow down time using the SPACE key. This consumes a limited Slow Meter (in the top left) that slows both the bullets and your ship, allowing you to perfectly time and execute tight maneuvers.
+In Bullet Time, you pilot a ship (WASD/arrows) towards a portal, while dodging an onslaught of bullets from enemies. You can also use Slow (SPACE) to more precisely control your ship.
+
+### Slow Meter
+
+While playing, you can slow down time using the SPACE key. This consumes a limited Slow Meter (in the top left) that slows both the bullets and your ship, allowing you to perfectly time and execute tight maneuvers. If you hold the button for too long, though, your Slow Meter depletes, which fast forwards the game back to normal speed.
+
+<img src="images/slowbardemo.gif" width="600px">
 
 There are three main enemy types in the game:
 
