@@ -4,7 +4,7 @@ Bullet Time is a difficult but fair bullet hell that lets you slow time down.
 
 <img src="images/cooldemo.gif" width="600px">
 
-I've always been fascinated by hard games, even though I'm not very good at them. What entices me about them is the feeling of invincibility one gets after failing a level over and over, and then succeeding in the end. In Bullet Time, I strove to make the game feel incrediby difficult but also fair and forgiving.
+I've always been fascinated by hard games, even though I'm not very good at them. What entices me about them is the feeling of invincibility one gets after failing a level over and over, and then succeeding in the end. In Bullet Time, I strove to make the game feel difficult but also satisfying.
 
 I created pixel art for the first time during this project. I also composed the soundtracks and sound effects myself.
 
