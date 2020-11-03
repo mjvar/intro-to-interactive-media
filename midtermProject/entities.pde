@@ -123,20 +123,22 @@ class Shooter{
   
   void shootBullet(){
     theta += 0.1;
-    if(frameCount % (freq/currentSpeed) == 0){
-      if(type == 0){
-        // REGULAR - just shoot in provided direction
-        bullets.add(new Bullet(loc, dir));
-      }
-      else if(type == 1){
-        // SNIPER - shoot in direction of player
-        PVector d = PVector.sub(myShip.loc, loc);
-        bullets.add(new Bullet(loc, d.normalize()));
-      }
-      else if(type == 2){
-        // BERSERKER - shoot in a spiral pattern
-        PVector d = new PVector(cos(theta),sin(theta));
-        bullets.add(new Bullet(loc, d));
+    if(frameCount % freq == 0){
+      if(frameCount % currentSpeed == 0){
+        if(type == 0){
+          // REGULAR - just shoot in provided direction
+          bullets.add(new Bullet(loc, dir));
+        }
+        else if(type == 1){
+          // SNIPER - shoot in direction of player
+          PVector d = PVector.sub(myShip.loc, loc);
+          bullets.add(new Bullet(loc, d.normalize()));
+        }
+        else if(type == 2){
+          // BERSERKER - shoot in a spiral pattern
+          PVector d = new PVector(cos(theta),sin(theta));
+          bullets.add(new Bullet(loc, d));
+        }
       }
     }
   }

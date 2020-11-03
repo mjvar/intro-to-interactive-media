@@ -3,16 +3,11 @@ const int greenLED = 4;
 const int yellowLED = 6;
 const int redLED = 8;
 
-const byte blueButton = A0;
-const byte greenButton = A1;
-const byte yellowButton = A2;
-const byte redButton = A3;
-
 // Array of LED pins
 const int leds[4] = {blueLED, greenLED, yellowLED, redLED};
 
 // Array of button input pins
-byte buts[4] = {blueButton, greenButton, yellowButton, redButton};
+byte buts[4] = {A0,A1,A2,A3};
 
 // Iterator for loop thing
 int iter = 0;
@@ -26,6 +21,7 @@ void setup() {
   pinMode(A1, INPUT);
   pinMode(A2, INPUT);
   pinMode(A3, INPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -36,7 +32,8 @@ void loop() {
 
   // If the current LED's corresponding button is pressed, light everything up
   if(digitalRead(buts[iter]) == HIGH){
-    victoryDance();
+      Serial.print(digitalRead(buts[iter]));
+      victoryDance();
   }
 
   // Iterate, or wrap back to 0
