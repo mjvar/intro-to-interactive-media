@@ -1,17 +1,18 @@
-# Final Project Concepts:
+# Final Project: Sonar DJ
 
+Sonar DJ is an interactive electronic music production kit. 
 
-### Sonar DJ
-My first idea is an interactive electronic music production kit. 
+### November 25
 
 A distance sensor is mounted on a servo. The area in front of the distance scanner is the audio space. When you put cubes on different parts of the space and hit SCAN, the distance scanner scans its surroundings and plays music based on the positions of the cubes.
 
-<img src="idea.jpg" width="600px">
+<img src="docs/idea.jpg" width="600px">
 
 My idea right now is for the audio space to have 4 different channels, where each channel controls a particular part of the music (as of now, beat, bass, chords, and melody). I also want to add more expressive ways to vary sounds, maybe with different kinds of sensors.
 
-### Rhythm combat game 
+### December 4
 
-See [Nov 24 assignment](https://drive.google.com/file/d/1Br94h9xjNaEC82mAstvNfd3ZLSeEnVra/view)
+Finished the basic physical prototype of the scanner! Mounting a breadboard onto a tiny servo, with a bunch of wires messily stuck on, makes stable motion and sensing quite difficult. Major takeaway from today: large amounts of Blu-Tack can solve anything. 
 
-Each ball launched is a kick drum, each one destroyed is a snare. Would be cool to compose a soundtrack and levels for this
+<img src="docs/prototype.png" width="600px">
+
