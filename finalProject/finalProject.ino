@@ -28,13 +28,13 @@ void scan(){
   // put your main code here, to run repeatedly:
   for(int i = 20; i < 160; i++){
     myServo.write(i);
-    delay(10);
+    delay(20);
     getDistanceReading(i);
   }
   delay(1000);
   for(int i = 160; i > 20; i--){
     myServo.write(i);
-    delay(10);
+    delay(20);
     getDistanceReading(i);
   }
 }
