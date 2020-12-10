@@ -25,13 +25,17 @@ I did have an idea for the instrument. Instead of having cubes on a mat that you
 ### December 9
 
 Finally finished the project! Today I worked on:
->Composing music loops for the instrument in Logic
->Controlling music with the distance sensor
->Coding audio visualizations with Fast Fourier Transforms
->Designing & printing a mat for the instrument
+*Composing music loops for the instrument in Logic
+*Controlling music with the distance sensor
+*Coding audio visualizations with Fast Fourier Transforms
+*Designing & printing a mat for the instrument
 
 The distance sensor can get pretty wonky, so what I did was get the closest distance reading for each angle range (so that I could use a thin object like a ballpen to trigger specific sounds without accidentally triggering others). 
 
 I also made a mat for the instrument to show the user what instruments there are and how to get different sounds out of them. Each "zone" in the mat has a specific musical loop associated with it, so you can play around with different loops from each instrument.
 
 <img src="mat-full.png" width="600px">
+
+Schematic:
+
+<img src="schem.jpg" width="600px">
