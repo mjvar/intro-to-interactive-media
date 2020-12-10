@@ -2,9 +2,9 @@
 
 Sonar DJ is an interactive electronic music kit. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/uY-fv90nOMc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Live demo link](https://www.youtube.com/watch?v=uY-fv90nOMc&feature=youtu.be)
 
-<iframe src="https://drive.google.com/file/d/1CjCPZXzTHssQ8xW4CwTgikQK24gp6BZ3/preview" width="640" height="480"></iframe>
+<img src="inst.png" width="600px">
 
 ### November 25
 
@@ -33,3 +33,5 @@ Finally finished the project! Today I worked on:
 The distance sensor can get pretty wonky, so what I did was get the closest distance reading for each angle range (so that I could use a thin object like a ballpen to trigger specific sounds without accidentally triggering others). 
 
 I also made a mat for the instrument to show the user what instruments there are and how to get different sounds out of them. Each "zone" in the mat has a specific musical loop associated with it, so you can play around with different loops from each instrument.
+
+<img src="mat-full.png" width="600px">
