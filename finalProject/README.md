@@ -36,6 +36,10 @@ The distance sensor can get pretty wonky, so what I did was get the closest dist
 
 I also made a mat for the instrument to show the user what instruments there are and how to get different sounds out of them. Each "zone" in the mat has a specific musical loop associated with it, so you can play around with different loops from each instrument.
 
+Instead of hitting a "scan" button, the servo just constantly moves so that the user can rearrange loops in real time. I think this is a lot more fun and interactive than the original idea, since it you actually have to move objects to the beat to get the arrangement you want.
+
+The audio visualizations are 4 radial FFTs synced to each different audio track. I timed it so that the canvas would clear after every 4-bar loop, which is a nice visual indicator of when you can rearrange things.
+
 <img src="mat-full.png" width="600px">
 
 Schematic:
