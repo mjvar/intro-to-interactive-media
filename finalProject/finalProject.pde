@@ -5,10 +5,6 @@ import processing.sound.*;
 Serial myPort;       
 int inByte[] = new int[2];
 
-// sensor reading vars
-int angle;
-int sensorDist;
-
 // Array of cleaned readings
 int[] readings = new int[4]; 
 // Array of temporary reading values for comparison
@@ -69,11 +65,7 @@ void setup () {
   }
 }
 
-void draw () {
-  // Update angle and sensor distance every frame
-  angle = inByte[0];
-  sensorDist = inByte[1];
-  
+void draw () {  
   getReadings();
   checkPlaying();
   playLoops();
@@ -90,12 +82,15 @@ void serialEvent (Serial myPort) {
     inString = trim(inString);
     // convert to an int and map to the screen height:
     inByte = int(split(inString,","));
+    // Update angle and sensor distance every frame
+    angle = inByte[0];
+    sensorDist = inByte[1];
   }
 }
 
 void getReadings(){
   // Method for reading distances to figure out which loops to play. 
-  if(angle <= 21 || angle >= 158){
+  if(inByte[0] <= 21 || inByte[0] >= 158){
     // If the scanner has reached the end of its rotation, reset temp values
     tempVals[0] = 100000;
     tempVals[1] = 100000;
