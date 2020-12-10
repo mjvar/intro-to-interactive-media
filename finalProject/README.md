@@ -2,6 +2,10 @@
 
 Sonar DJ is an interactive electronic music kit. 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uY-fv90nOMc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe src="https://drive.google.com/file/d/1CjCPZXzTHssQ8xW4CwTgikQK24gp6BZ3/preview" width="640" height="480"></iframe>
+
 ### November 25
 
 A distance sensor is mounted on a servo. The area in front of the distance scanner is the "audio space", which is a labelled mat with different channels. When you put cubes on different parts of each channel and hit SCAN, the distance scanner scans its surroundings and plays music based on the positions of the cubes.
@@ -17,3 +21,15 @@ Finished the basic physical prototype of the scanner! Mounting a breadboard onto
 <img src="docs/prototype.png" width="600px">
 
 I did have an idea for the instrument. Instead of having cubes on a mat that you just move around, it would be cool to control the instrument by moving your hands across the mat. This makes the instrument less likely to be played for longer periods of time, since people's hands will probably get tired. Plus, having human hands on the mat instead of cubes will make sensing much less accurate. I'll sleep on it and think about what makes sense.
+
+### December 9
+
+Finally finished the project! Today I worked on:
+>Composing music loops for the instrument in Logic
+>Controlling music with the distance sensor
+>Coding audio visualizations with Fast Fourier Transforms
+>Designing & printing a mat for the instrument
+
+The distance sensor can get pretty wonky, so what I did was get the closest distance reading for each angle range (so that I could use a thin object like a ballpen to trigger specific sounds without accidentally triggering others). 
+
+I also made a mat for the instrument to show the user what instruments there are and how to get different sounds out of them. Each "zone" in the mat has a specific musical loop associated with it, so you can play around with different loops from each instrument.
