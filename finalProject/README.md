@@ -6,9 +6,11 @@ Sonar DJ is an interactive electronic music kit.
 
 <img src="inst.png" width="600px">
 
+
+## Progress Journal
 ### November 25
 
-A distance sensor is mounted on a servo. The area in front of the distance scanner is the "audio space", which is a labelled mat with different channels. When you put cubes on different parts of each channel and hit SCAN, the distance scanner scans its surroundings and plays music based on the positions of the cubes.
+I have a rough idea of what I want to do. A distance sensor is mounted on a servo. The area in front of the distance scanner is the "audio space", which is a labelled mat with different channels. When you put cubes on different parts of each channel and hit SCAN, the distance scanner scans its surroundings and plays music based on the positions of the cubes.
 
 <img src="docs/idea.jpg" width="600px">
 
